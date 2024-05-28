@@ -16,6 +16,9 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Lerp")]
     public TextMeshPro uiTextPowerUp;
 
+    [Header("Coins Setup")]
+    public GameObject coinCollector;
+
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckEndLine = "EndLine";
 
@@ -110,6 +113,12 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight()
     {
         transform.DOMoveY(_startPosition.y, .1f);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
+        Debug.Log("Entrrou");
     }
 
     #endregion

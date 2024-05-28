@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Singleton;
+using TMPro;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -10,6 +11,9 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Lerp")]
     public Transform target;
     public float lerpSpeed = 1f;
+
+    [Header("Lerp")]
+    public TextMeshPro uiTextPowerUp;
 
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckEndLine = "EndLine";
@@ -73,7 +77,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void setPowerUpText(string s)
     {
-        //uiTextPowerUp.text = s;
+        uiTextPowerUp.text = s;
     }
 
     public void PowerUpSpeedUp(float f)

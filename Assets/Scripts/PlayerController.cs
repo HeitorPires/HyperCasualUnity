@@ -21,6 +21,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private float _currentSpeed;
     private Vector3 _startPosition;
+    public bool invencible = false;
 
     private void Start()
     {
@@ -46,14 +47,14 @@ public class PlayerController : Singleton<PlayerController>
     {
         if(collision.transform.tag == tagToCheckEnemy)
         {
-            EndGame();
+            if(!invencible) EndGame();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(tagToCheckEndLine))
-            EndGame();
+            if(!invencible) EndGame();
     }
 
     public void StartToRun()
@@ -85,6 +86,13 @@ public class PlayerController : Singleton<PlayerController>
         _currentSpeed = speed;
     }
 
+    public void SetInvencible(bool b = true)
+    {
+        invencible = b;
+    }
+
     #endregion
+    
+
 
 }

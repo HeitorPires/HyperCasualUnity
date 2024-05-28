@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core.Singleton;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     public float speed = 1f;
 
@@ -18,6 +19,15 @@ public class PlayerController : MonoBehaviour
 
     public GameObject endScreen;
 
+    private float _currentSpeed;
+    private Vector3 _startPosition;
+
+    private void Start()
+    {
+        _startPosition = transform.position;
+        ResetSpeed();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +39,7 @@ public class PlayerController : MonoBehaviour
         _pos.z = transform.position.z;
 
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
-        transform.Translate(speed * Time.deltaTime * transform.forward);
+        transform.Translate(_currentSpeed * Time.deltaTime * transform.forward);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,6 +68,23 @@ public class PlayerController : MonoBehaviour
         endScreen.SetActive(true);
     }
 
+    #region Power Ups
 
+    public void setPowerUpText(string s)
+    {
+        //uiTextPowerUp.text = s;
+    }
+
+    public void PowerUpSpeedUp(float f)
+    {
+        _currentSpeed = f;
+    }
+
+    public void ResetSpeed()
+    {
+        _currentSpeed = speed;
+    }
+
+    #endregion
 
 }

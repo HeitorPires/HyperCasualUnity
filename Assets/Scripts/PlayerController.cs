@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Core.Singleton;
 using TMPro;
+using DG.Tweening;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -93,6 +94,22 @@ public class PlayerController : Singleton<PlayerController>
     public void SetInvencible(bool b = true)
     {
         invencible = b;
+    }
+
+    public void ChangeHeight(float amount, float duration, float animationDuration, Ease ease)
+    {
+        /*var p = transform.position;
+        p.y = _startPosition.y + amount;
+        transform.position = p;*/
+
+        transform.DOMoveY(_startPosition.y + amount, animationDuration).SetEase(ease);
+        Invoke(nameof(ResetHeight), duration);
+
+    }
+
+    public void ResetHeight()
+    {
+        transform.DOMoveY(_startPosition.y, .1f);
     }
 
     #endregion

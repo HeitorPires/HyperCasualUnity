@@ -8,6 +8,7 @@ using static AnimatorManager;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    //Publics
     public float speed = 1f;
 
     [Header("Lerp")]
@@ -26,14 +27,18 @@ public class PlayerController : Singleton<PlayerController>
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckEndLine = "EndLine";
 
+    public GameObject endScreen;
+
+    public bool invencible = false;
+
+    //Privates
     private bool _canRun;
     private Vector3 _pos;
 
-    public GameObject endScreen;
-
     private float _currentSpeed;
     private Vector3 _startPosition;
-    public bool invencible = false;
+
+    private float _baseSpeedToAnimation = 3f;
 
     private void Start()
     {
@@ -81,7 +86,7 @@ public class PlayerController : Singleton<PlayerController>
     public void StartToRun()
     {
         _canRun = true;
-        animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedToAnimation);
     }
 
     private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)

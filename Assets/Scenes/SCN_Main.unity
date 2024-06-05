@@ -370,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35298723}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30441597, y: -0.05698257, z: 0.018246733, w: 0.9506582}
+  m_LocalRotation: {x: 0.30441594, y: -0.056982536, z: 0.01824672, w: 0.9506582}
   m_LocalPosition: {x: -0.02000004, y: 5.0099998, z: -12.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -835,6 +835,7 @@ MonoBehaviour:
   lerpSpeed: 10
   uiTextPowerUp: {fileID: 727663649}
   coinCollector: {fileID: 1659239859}
+  animatorManager: {fileID: 660391587}
   tagToCheckEnemy: Enemy
   tagToCheckEndLine: EndLine
   endScreen: {fileID: 920759083}
@@ -932,6 +933,10 @@ PrefabInstance:
     - target: {fileID: 5531986718136724959, guid: 89e20167823a30d459856414377997d1, type: 3}
       propertyPath: m_Name
       value: PFB_Astronaut Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8296449584855999063, guid: 89e20167823a30d459856414377997d1, type: 3}
+      propertyPath: animatiorSetups.Array.data[2].speed
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1382,6 +1387,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5156129202013452133, guid: 89e20167823a30d459856414377997d1, type: 3}
   m_PrefabInstance: {fileID: 346518467}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &660391587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8296449584855999063, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 346518467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c063c4e1306ed740b9f0326c349cd58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &723895333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5737285705098889928, guid: 87d86cdfb73a02c469d6502db5bbd893, type: 3}
@@ -1962,7 +1978,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069809210}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30441597, y: -0.05698257, z: 0.018246733, w: 0.9506582}
+  m_LocalRotation: {x: 0.30441594, y: -0.056982536, z: 0.01824672, w: 0.9506582}
   m_LocalPosition: {x: 0.8651435, y: 5.1521935, z: -13.12468}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2805,7 +2821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1723794395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3549,7 +3565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594771149970887522, guid: 0fe830f8e49a9c04eba001142a87ff60, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

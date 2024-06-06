@@ -38,7 +38,7 @@ public class PlayerController : Singleton<PlayerController>
     private float _currentSpeed;
     private Vector3 _startPosition;
 
-    private float _baseSpeedToAnimation = 3f;
+    private float _baseSpeedToAnimation = 7f;
 
     private void Start()
     {
